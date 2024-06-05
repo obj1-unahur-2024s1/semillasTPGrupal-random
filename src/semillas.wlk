@@ -36,6 +36,7 @@ class Soja inherits Plantas{
 }
 
 class Quinoa inherits Plantas{
+	var property horasDeSol 
 	method cuantoEspacionOcupa()= 0.5
 	override method daSemillasNuevas(){
 		return 
