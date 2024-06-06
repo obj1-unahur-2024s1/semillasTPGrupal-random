@@ -41,7 +41,34 @@ test "soja transgenica" {
 }
 
 test "Hierbabuena" {
-	const hierbabuena = new Hierbabuena(altura = 1, anioObtencion= 0)
+	const hierbabuena = new Hierbabuena(altura = 2, anioObtencion= 0)
 	
-	assert.equals (false, sojaT.daNuevasSemillas())
+	assert.equals (6 * 2, hierbabuena.espacio())
+}
+
+test "Parcelas con 4 sojas"{
+	const parcela = new Parcela(ancho= 20, largo= 1, horasDeSol= 8)
+	const soja = new Soja(altura = 1.2, anioObtencion= 0)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	
+	assert.equals (20, parcela.superficie())
+	assert.equals (4, parcela.cantidadMax())
+	assert.equals (false, parcela.tieneComplicaciones())
+	
+}
+
+test "Parcelas con 5 sojas ERROR"{
+	const parcela = new Parcela(ancho= 20, largo= 1, horasDeSol= 8)
+	const soja = new Soja(altura = 1.2, anioObtencion= 0)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	parcela.plantar(soja)
+	
+	assert.equals (false, parcela.cantidadMax())
+	
 }
